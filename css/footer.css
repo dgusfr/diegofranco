@@ -12,12 +12,6 @@
   align-items: center;
 }
 
-.footer-texto {
-  font-size: 1.5rem;
-  line-height: 1.33;
-  color: #cccccc;
-}
-
 .footer-contato li {
   font-weight: bold;
   font-size: 2.25rem;

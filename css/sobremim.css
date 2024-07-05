@@ -1,0 +1,24 @@
+.sobremim {
+  max-width: 1200px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 100px;
+}
+
+.sobremim .subtitulo {
+  color: #e0e0e0;
+}
+
+.sobremim-texto {
+  font-size: 1.5rem;
+  line-height: 1.33;
+  max-width: 40ch;
+  margin-bottom: 60px;
+  color: #525252;
+}
+
+.sobremim-texto strong {
+  color: #141414;
+}

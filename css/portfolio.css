@@ -107,14 +107,59 @@
   color: #000000;
 }
 
+/* Estilos para dispositivos maiores que 800px */
+.projeto-image {
+  display: block;
+}
+
+.projeto-site-link {
+  display: none;
+}
+
+/* Estilos para dispositivos com largura máxima de 800px */
 @media (max-width: 800px) {
   .projeto {
     grid-template-columns: 1fr;
   }
+
   .projeto-ano {
     position: initial;
     order: 1;
     width: initial;
     text-align: left;
+  }
+
+  .projeto-detalhes {
+    display: block;
+  }
+
+  .projeto-image {
+    display: none;
+  }
+
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .projeto-link,
+  .projeto-site-link {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .projeto-link img,
+  .projeto-site-link img {
+    margin-right: 10px;
+    max-width: 20px;
+  }
+
+  .projeto-site-link {
+    display: inline-block;
   }
 }

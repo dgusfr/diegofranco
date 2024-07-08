@@ -58,10 +58,10 @@
 }
 
 .projeto-titulo {
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   line-height: 1.1;
   font-weight: bold;
-  color: #525252;
+  color: #1b1b1b;
   margin-top: 30px;
 }
 
@@ -116,7 +116,6 @@
   display: none;
 }
 
-/* Estilos para dispositivos com largura máxima de 800px */
 @media (max-width: 800px) {
   .projeto {
     grid-template-columns: 1fr;
@@ -146,7 +145,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 15px; /* Espaço acima dos links */
+    margin-top: 15px;
   }
 
   .projeto-link,
@@ -164,5 +163,15 @@
   .projeto-site-link img {
     margin-right: 10px;
     max-width: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .projeto-detalhes {
+    display: none;
+  }
+
+  .links {
+    margin-top: 60px;
   }
 }

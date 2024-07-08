@@ -129,7 +129,12 @@
     text-align: left;
   }
 
+  .projeto-titulo {
+    margin-bottom: 15px; /* Espaço abaixo do título */
+  }
+
   .projeto-detalhes {
+    margin-bottom: 35px; /* Espaço abaixo do parágrafo */
     display: block;
   }
 
@@ -138,9 +143,10 @@
   }
 
   .links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px; /* Espaço acima dos links */
   }
 
   .projeto-link,
@@ -151,15 +157,12 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+    margin: 0 10px; /* Espaço entre os links */
   }
 
   .projeto-link img,
   .projeto-site-link img {
     margin-right: 10px;
     max-width: 20px;
-  }
-
-  .projeto-site-link {
-    display: inline-block;
   }
 }

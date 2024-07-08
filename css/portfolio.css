@@ -21,22 +21,39 @@
   margin-bottom: auto;
   border-radius: 4px;
   padding: 20px;
-  height: 200px;
   transition: background-color 0.3s ease, transform 0.3s ease,
     box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.projeto-link {
+.projeto h3,
+.projeto p,
+.projeto .links {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.projeto .links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.projeto-link,
+.projeto-site-link {
   font-size: 24px;
   font-weight: bold;
   color: #333;
   text-decoration: none;
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  margin: 10px;
 }
 
-.projeto-link img {
+.projeto-link img,
+.projeto-site-link img {
   margin-right: 10px;
   max-width: 20px;
 }
@@ -58,11 +75,12 @@
 }
 
 .projeto-titulo {
-  font-size: 1.8rem;
+  font-size: 1.125rem;
   line-height: 1.1;
   font-weight: bold;
-  color: #1b1b1b;
+  color: #525252;
   margin-top: 30px;
+  margin-bottom: 15px; /* Espaço abaixo do título */
 }
 
 .projeto-texto {
@@ -94,6 +112,7 @@
 
 .projeto-detalhes {
   margin-top: 30px;
+  margin-bottom: 35px; /* Espaço abaixo do parágrafo */
 }
 
 .projeto:hover {
@@ -108,17 +127,22 @@
 }
 
 /* Estilos para dispositivos maiores que 800px */
-.projeto-image {
-  display: block;
+@media (min-width: 801px) {
+  .projeto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .projeto-site-link {
+    display: none;
+  }
 }
 
-.projeto-site-link {
-  display: none;
-}
-
+/* Estilos para dispositivos com largura máxima de 800px */
 @media (max-width: 800px) {
   .projeto {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   .projeto-ano {
@@ -128,12 +152,7 @@
     text-align: left;
   }
 
-  .projeto-titulo {
-    margin-bottom: 15px; /* Espaço abaixo do título */
-  }
-
   .projeto-detalhes {
-    margin-bottom: 35px; /* Espaço abaixo do parágrafo */
     display: block;
   }
 
@@ -145,33 +164,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 15px; /* Espaço acima dos links */
   }
 
   .projeto-link,
   .projeto-site-link {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin: 0 10px; /* Espaço entre os links */
-  }
-
-  .projeto-link img,
-  .projeto-site-link img {
-    margin-right: 10px;
-    max-width: 20px;
+    margin: 10px 0;
   }
 }
 
+/* Estilos para dispositivos com largura máxima de 400px */
 @media (max-width: 400px) {
   .projeto-detalhes {
-    display: none;
+    display: none; /* Esconde o parágrafo */
   }
 
   .links {
-    margin-top: 60px;
+    margin-top: 15px; /* Espaço acima dos links específico para telas menores */
   }
 }

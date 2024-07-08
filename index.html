@@ -12,14 +12,12 @@
 
 <body>
   <header class="header">
-    <p>PORTFÓLIO
-    <p>
-    <nav class="menu js-menu">
-      <ul class="header-menu">
-        <li><a href="#experiencia">Experiência</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+    <p>PORTFÓLIO</p>
+    <div class="menu-hamburguer" id="menu-hamburguer">☰</div>
+    <nav class="header-menu" id="nav-links">
+      <a href="#experiencia">Experiência</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
     </nav>
   </header>
 
@@ -249,6 +247,7 @@
   </footer>
 
   <script>
+    //Scroll Suave
     function initScrollSuave() {
       const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
 
@@ -268,6 +267,17 @@
     }
 
     initScrollSuave();
+
+    // Menu Hamburguer
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuHamburguer = document.getElementById('menu-hamburguer');
+      const navLinks = document.getElementById('nav-links');
+
+      menuHamburguer.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+      });
+    });
+
   </script>
 
 </body>

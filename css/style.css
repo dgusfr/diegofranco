@@ -6,3 +6,8 @@
 @import "./formacao.css";
 @import "./portfolio.css";
 @import "./footer.css";
+
+/* Definir a fonte globalmente */
+body {
+  font-family: "Fira Code", Arial, sans-serif;
+}

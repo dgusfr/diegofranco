@@ -11,18 +11,6 @@
   color: #adadad;
 }
 
-.experiencia-texto {
-  font-size: 1.5rem;
-  line-height: 1.33;
-  max-width: 40ch;
-  margin-bottom: 60px;
-  color: #525252;
-}
-
-.experiencia-texto strong {
-  color: #141414;
-}
-
 .empresa {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -90,9 +78,6 @@
   }
   .experiencia .subtitulo {
     color: #141414;
-  }
-  .experiencia-texto {
-    font-size: 1.25rem;
   }
   .empresa-ano {
     position: initial;

@@ -80,7 +80,7 @@
   font-weight: bold;
   color: #000000;
   margin-top: 30px;
-  margin-bottom: 15px; /* Espaço abaixo do título */
+  margin-bottom: 15px; 
 }
 
 .projeto-texto {
@@ -113,7 +113,7 @@
 .projeto-detalhes {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 30px;
-  margin-bottom: 35px; /* Espaço abaixo do parágrafo */
+  margin-bottom: 35px; 
   line-height: 1.5;
 }
 
@@ -128,7 +128,7 @@
   color: #000000;
 }
 
-/* Estilos para dispositivos maiores que 800px */
+
 @media (min-width: 801px) {
   .projeto {
     display: grid;
@@ -140,7 +140,6 @@
   }
 }
 
-/* Estilos para dispositivos com largura máxima de 800px */
 @media (max-width: 800px) {
   .projeto {
     display: flex;
@@ -166,7 +165,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 15px; /* Espaço acima dos links */
+    margin-top: 15px; 
   }
 
   .projeto-link,
@@ -175,13 +174,25 @@
   }
 }
 
-/* Estilos para dispositivos com largura máxima de 400px */
 @media (max-width: 400px) {
+  .portfolio-container {
+    display: flex;
+    flex-wrap: wrap;           
+    justify-content: center;   
+  }
+
+  .projeto {
+    flex: 1 1 100%;            
+    max-width: 350px;          
+    margin: 10px;              
+    box-sizing: border-box;   
+  }
+
   .projeto-detalhes {
-    display: none; /* Esconde o parágrafo */
+    display: none;             
   }
 
   .links {
-    margin-top: 15px; /* Espaço acima dos links específico para telas menores */
+    margin-top: 80px;         
   }
 }

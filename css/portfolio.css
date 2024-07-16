@@ -15,8 +15,8 @@
 
 .projeto {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  grid-template-columns: 1fr;
+  gap: 20px;
   background: #f5f5f5;
   margin-bottom: auto;
   border-radius: 4px;
@@ -25,11 +25,24 @@
     box-shadow 0.3s ease;
   width: 100%;
   box-sizing: border-box;
+  grid-template-areas:
+    'content'
+    'image';
 }
 
-.projeto h3,
-.projeto p,
-.projeto .links {
+.projeto-content {
+  grid-area: content;
+}
+
+.projeto-image {
+  grid-area: image;
+  max-width: 425px;
+  margin: auto;
+}
+
+.projeto-content h3,
+.projeto-content p,
+.projeto-content .links {
   width: 100%;
   box-sizing: border-box;
 }
@@ -80,7 +93,7 @@
   font-weight: bold;
   color: #000000;
   margin-top: 30px;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
 
 .projeto-texto {
@@ -105,11 +118,6 @@
   padding: 5px 10px;
 }
 
-.projeto-image {
-  max-width: 425px;
-  margin: auto;
-}
-
 .responsive-image {
   width: 100%;
   height: auto;
@@ -118,7 +126,7 @@
 .projeto-detalhes {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 30px;
-  margin-bottom: 35px; 
+  margin-bottom: 35px;
   line-height: 1.5;
 }
 
@@ -133,44 +141,48 @@
   color: #000000;
 }
 
-
 @media (min-width: 801px) {
   .projeto {
-    display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      'content image';
   }
 
-  .projeto-site-link {
-    display: none;
+  .projeto-content {
+    grid-area: content;
+  }
+
+  .projeto-image {
+    grid-area: image;
   }
 }
 
 @media (max-width: 800px) {
   .projeto {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .projeto-ano {
-    position: initial;
-    order: 1;
-    width: initial;
-    text-align: left;
-  }
-
-  .projeto-detalhes {
-    display: block;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'content'
+      'image';
   }
 
   .projeto-image {
-    display: block;
+    order: 2;
+  }
+
+  .projeto-content {
+    order: 1;
+  }
+
+  .projeto-content .projeto-detalhes {
+    order: 3;
   }
 
   .links {
+    order: 4;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 15px; 
+    margin-top: 15px;
   }
 
   .projeto-link,
@@ -182,22 +194,18 @@
 @media (max-width: 400px) {
   .portfolio-container {
     display: flex;
-    flex-wrap: wrap;           
-    justify-content: center;   
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .projeto {
-    flex: 1 1 100%;            
-    max-width: 350px;          
-    margin: 10px;              
-    box-sizing: border-box;   
-  }
-
-  .projeto-detalhes {
-    display: none;             
+    flex: 1 1 100%;
+    max-width: 350px;
+    margin: 10px;
+    box-sizing: border-box;
   }
 
   .links {
-    margin-top: 40px;         
+    margin-top: 30px;
   }
 }

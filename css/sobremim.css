@@ -23,3 +23,18 @@
 .sobremim-texto strong {
   color: #141414;
 }
+
+@media (max-width: 400px) {
+  .subtitulo {
+    display: none;
+  }
+  
+  .sobremim {
+    grid-template-columns: 1fr;
+  }
+
+  .sobremim-texto {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+}

@@ -56,21 +56,16 @@
 @media (max-width: 400px) {
   .introducao {
     grid-template-columns: 1fr;
+    padding: 20px 10px;
+    margin: 80px 5px 5px 10px;
   }
+
+  .introducao p {
+    font-size: 1.2rem;
+    color: #525252;
+  }
+
   .introducao img {
     display: none;
   }
-}
-
-/* Estilos para tema escuro */
-body.dark-mode .introducao p {
-  color: #d0d0d0;
-}
-
-body.dark-mode .introducao h1 {
-  color: #ffffff;
-}
-
-body.dark-mode .introducao h1::before {
-  filter: invert(1);
 }

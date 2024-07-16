@@ -61,3 +61,16 @@
     display: none;
   }
 }
+
+/* Estilos para tema escuro */
+body.dark-mode .introducao p {
+  color: #d0d0d0;
+}
+
+body.dark-mode .introducao h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .introducao h1::before {
+  filter: invert(1);
+}

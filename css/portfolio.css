@@ -110,6 +110,11 @@
   margin: auto;
 }
 
+.responsive-image {
+  width: 100%;
+  height: auto;
+}
+
 .projeto-detalhes {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 30px;
@@ -158,7 +163,7 @@
   }
 
   .projeto-image {
-    display: none;
+    display: block;
   }
 
   .links {
@@ -193,6 +198,6 @@
   }
 
   .links {
-    margin-top: 80px;         
+    margin-top: 40px;         
   }
 }

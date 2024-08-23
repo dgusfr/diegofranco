@@ -387,6 +387,20 @@
                 });
             });
 
+            //Animation Header Menu
+            document.getElementById("menu-hamburguer").addEventListener("click", function () {
+                const menu = document.getElementById("nav-links");
+                const content = document.querySelector(".content");
+
+                if (menu.classList.contains("open")) {
+                    menu.classList.remove("open");
+                    content.style.marginTop = "0";
+                } else {
+                    menu.classList.add("open");
+                    content.style.marginTop = menu.offsetHeight + "px";
+                }
+            });
+
             //Date
             document.getElementById('date').textContent = new Date().getFullYear();
         </script>

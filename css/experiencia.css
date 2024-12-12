@@ -40,11 +40,11 @@
 }
 
 .empresa-ano {
-  grid-column: 1 / -1; /* Span across both columns */
+  grid-column: 1 / -1;
   text-align: left;
   color: #525252;
   font-size: 0.875rem;
-  margin-top: 10px; /* Space between title and year */
+  margin-top: 10px;
 }
 
 .empresa-titulo {
@@ -58,7 +58,7 @@
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   color: #2e2e2e;
-  grid-column: 1 / -1; /* Span across both columns */
+  grid-column: 1 / -1;
 }
 
 .empresa-habilidades {
@@ -66,7 +66,7 @@
   flex-wrap: wrap;
   gap: 10px;
   align-content: start;
-  grid-column: 1 / -1; /* Span across both columns */
+  grid-column: 1 / -1;
 }
 
 .empresa-habilidades li {

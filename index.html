@@ -15,7 +15,7 @@
 <body>
     <header class="header">
         <p>PORTFÓLIO</p>
-        <div class="menu-hamburguer" id="menu-hamburguer">
+        <div class="menu-hamburguer" id="menu-hamburguer" aria-label="Menu de Navegação" aria-expanded="false">
             &#9776;
         </div>
         <nav class="header-menu" id="nav-links">
@@ -191,7 +191,7 @@
                 <div class="projeto">
                     <div class="projeto-content">
                         <h3 class="projeto-titulo">React Weather</h3>
-                        <p class="projeto-detalhes">Uma aplicação web que permite aos usuários visualizar a previsão do tempo atual e dos próximos dias. A previsão é baseada em uma cidade específica, utilizando a <strong>API da OpenWeather<strong>.</p>
+                        <p class="projeto-detalhes">Uma aplicação web que permite aos usuários visualizar a previsão do tempo atual e dos próximos dias. A previsão é baseada em uma cidade específica, utilizando a <strong>API da OpenWeather</strong>.</p>
                         <div class="links">
                             <a href="https://github.com/dgusfr/react_weather" class="projeto-link" target="_blank" rel="noopener noreferrer">
                                 <img src="img/projetos/githublogo.png" alt="GitHub">React Weather
@@ -212,7 +212,7 @@
                 <div class="projeto">
                     <div class="projeto-content">
                         <h3 class="projeto-titulo">Movie List</h3>
-                        <p class="projeto-detalhes">Um aplicativo simples de gerenciamento de lista de filmes criado com <strong>React</strong> e <strong>TypeScript<strong>, utilizando Vite como ferramenta de build.</p>
+                        <p class="projeto-detalhes">Um aplicativo simples de gerenciamento de lista de filmes criado com <strong>React</strong> e <strong>TypeScript</strong>, utilizando Vite como ferramenta de build.</p>
                         <div class="links">
                             <a href="https://github.com/dgusfr/listaFilmesReact" class="projeto-link" target="_blank" rel="noopener noreferrer">
                                 <img src="img/projetos/githublogo.png" alt="GitHub">listadefilmes
@@ -344,7 +344,6 @@
                 <br>
             </div>
         </section>
-
         <br>
         <footer class="footer" id="contato">
             <div class="footer-container">
@@ -361,55 +360,7 @@
                 </div>
             </div>
         </footer>
-        <script>
-            //Scroll Suave
-            function initScrollSuave() {
-                const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
-
-                function scrollToSection(event) {
-                    event.preventDefault();
-                    const href = event.currentTarget.getAttribute("href");
-                    const section = document.querySelector(href);
-                    section.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                    });
-                }
-
-                linksInternos.forEach((link) => {
-                    link.addEventListener("click", scrollToSection);
-                });
-            }
-            initScrollSuave();
-
-            // Menu Hamburguer
-            document.addEventListener('DOMContentLoaded', function () {
-                const menuHamburguer = document.getElementById('menu-hamburguer');
-                const navLinks = document.getElementById('nav-links');
-
-                menuHamburguer.addEventListener('click', function () {
-                    navLinks.classList.toggle('active');
-                });
-            });
-
-            //Animation Header Menu
-            document.getElementById("menu-hamburguer").addEventListener("click", function () {
-                const menu = document.getElementById("nav-links");
-                const content = document.querySelector(".content");
-
-                if (menu.classList.contains("open")) {
-                    menu.classList.remove("open");
-                    content.style.marginTop = "0";
-                } else {
-                    menu.classList.add("open");
-                    content.style.marginTop = menu.offsetHeight + "px";
-                }
-            });
-
-            //Date
-            document.getElementById('date').textContent = new Date().getFullYear();
-        </script>
-    </div>
-</body>
-
+        
+        <script src="js/index.js" defer></script>
+    </body>
 </html>

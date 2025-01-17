@@ -29,18 +29,6 @@
   max-width: 5ch;
 }
 
-.formacao-texto {
-  font-size: 1.5rem;
-  line-height: 1.33;
-  max-width: 40ch;
-  margin-bottom: 60px;
-  color: #a3a3a3;
-}
-
-.formacao-texto strong {
-  color: #ffffff;
-}
-
 .faculdade-lista {
   display: flex;
   flex-wrap: wrap;
@@ -147,9 +135,6 @@
   }
   .formacao .subtitulo {
     color: #ffffff;
-  }
-  .formacao-texto {
-    font-size: 1.25rem;
   }
   .formacao-extra h3::before {
     position: initial;

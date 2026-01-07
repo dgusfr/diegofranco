@@ -156,18 +156,16 @@
                 <div class="projeto">
                     <div class="projeto-content">
                         <h3 class="projeto-titulo">ConquisTi API REST</h3>
-                        <p class="projeto-detalhes">Uma API RESTful desenvolvida para gerenciar usuários e artigos, utilizando <strong>Node.js</strong> e <strong>Sequelize</strong>. A API é projetada para ser eficiente e escalável, permitindo autenticação de usuários com <strong>JWT</strong> e gerenciamento de artigos de forma dinâmica.</p>
+                        <p class="projeto-detalhes">Uma API RESTful desenvolvida para gerenciar usuários e artigos, utilizando <strong>Node.js</strong> e <strong>Sequelize</strong>. A API é projetada para ser eficiente e escalável, permitindo autenticação de usuários com <strong>JWT</strong>.</p>
                         <div class="links">
                             <a href="https://github.com/dgusfr/node_API_REST" class="projeto-link" target="_blank" rel="noopener noreferrer">
-                                <img src="img/projetos/githublogo.png" alt="GitHub">ConquisTiAPI
+                                <img src="img/projetos/githublogo.png" alt="GitHub">Ver Código
                             </a>
                         </div>
                     </div>
-                    <div class="projeto-image video-container">
-                        <a href="https://www.youtube.com/watch?v=SEU_ID_DO_VIDEO" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <img src="https://img.youtube.com/vi/SEU_ID_DO_VIDEO/maxresdefault.jpg" alt="Vídeo do Projeto" class="video-thumb">
-                            <div class="play-icon"></div>
-                        </a>
+                    <div class="projeto-image video-trigger" onclick="abrirModal()">
+                        <img src="img/projetos/apis.png" alt="Ver Demo em Vídeo" class="responsive-image video-thumb">
+                        <div class="play-icon"></div>
                     </div>
                 </div>
                 <br>
@@ -252,7 +250,22 @@
                 </div>
             </div>
         </footer>
+
+        <div id="videoModal" class="modal-overlay" onclick="fecharModal()">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <iframe 
+                    id="youtubeFrame"
+                    src="" 
+                    title="Demo Vertical" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
         
         <script src="js/index.js" defer></script>
+
     </body>
 </html>

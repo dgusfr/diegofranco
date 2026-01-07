@@ -39,3 +39,43 @@ document.addEventListener('DOMContentLoaded', function () {
       dateElement.textContent = new Date().getFullYear();
   }
 });
+
+
+// --- Controle do Modal de Vídeo ---
+
+// Variável com o ID do seu vídeo (Coloque o ID real aqui)
+const YOUTUBE_VIDEO_ID = "cIpSleu-WxA"; 
+
+window.abrirModal = function() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('youtubeFrame');
+    
+    if(modal && iframe) {
+        // Monta a URL com autoplay e mudo (para evitar bloqueio de alguns navegadores) ou som ligado
+        // rel=0 garante que não mostre vídeos de outros canais no final
+        iframe.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
+        
+        modal.style.display = "flex";
+        // Previne rolagem da página atrás do modal
+        document.body.style.overflow = "hidden";
+    }
+}
+
+window.fecharModal = function() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('youtubeFrame');
+    
+    if(modal && iframe) {
+        iframe.src = ""; // Para o vídeo imediatamente
+        modal.style.display = "none";
+        // Devolve a rolagem para a página
+        document.body.style.overflow = "auto";
+    }
+}
+
+// Fecha o modal se apertar ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        window.fecharModal();
+    }
+});

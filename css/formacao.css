@@ -157,9 +157,13 @@
     text-align: left;
     margin-bottom: 20px;
   }
-  
+
   .formacao-extra h3::before {
     position: initial;
     margin-bottom: 10px;
+  }
+
+  .faculdade-lista {
+    flex-direction: column;
   }
 }

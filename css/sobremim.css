@@ -18,6 +18,7 @@
   max-width: 40ch;
   margin-bottom: 60px;
   color: #525252;
+  text-align: justify; 
 }
 
 .sobremim-texto strong {

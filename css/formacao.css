@@ -30,7 +30,7 @@
   max-width: 1ch; 
   word-break: break-all;
   text-align: center;
-  line-height: 1;
+  line-height: 1.4; 
   font-size: 6rem; 
   margin: 0 auto; 
 }

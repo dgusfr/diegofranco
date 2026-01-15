@@ -29,12 +29,13 @@
 }
 
 @media (max-width: 450px) {
-  .subtitulo {
+  .sobremim .subtitulo {
     display: none;
   }
   
   .sobremim {
     grid-template-columns: 1fr;
+    margin-bottom: 60px; 
   }
 
   .sobremim-texto {
@@ -45,9 +46,9 @@
   .perfil-mobile {
     display: block;        
     width: 100%;           
-    max-width: 250px;     
-    height: auto;        
-    margin: 30px auto 0;  
+    max-width: 250px;      
+    height: auto;          
+    margin: 30px auto 0;   
   }
 }
 

@@ -9,6 +9,11 @@
 
 .experiencia .subtitulo {
   color: #141414;
+  font-size: 4rem;      
+  word-break: normal;   
+  max-width: none;     
+  line-height: 1;
+  align-self: start;   
 }
 
 .empresa {

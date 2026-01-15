@@ -43,10 +43,12 @@
   }
 
   .perfil-mobile {
-    display: block;      
-    width: 150px;         
-    height: auto;
-    margin: 30px auto 0; 
-    border-radius: 50%;   
+    display: block;        
+    width: 100%;           
+    max-width: 250px;     
+    height: auto;        
+    margin: 30px auto 0;  
   }
 }
+
+

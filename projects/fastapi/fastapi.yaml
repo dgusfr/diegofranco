@@ -1,0 +1,334 @@
+openapi: 3.0.3
+info:
+  title: API de Gerenciamento Escolar - FastAPI
+  version: 0.1.0
+paths:
+  /estudantes/:
+    get:
+      summary: Listar Estudantes
+      operationId: listar_estudantes_estudantes__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Estudante'
+    post:
+      summary: Criar Estudante
+      operationId: criar_estudante_estudantes__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EstudanteCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Estudante'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
+  /disciplinas/:
+    get:
+      summary: Listar Disciplinas
+      operationId: listar_disciplinas_disciplinas__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Disciplina'
+    post:
+      summary: Criar Disciplina
+      operationId: criar_disciplina_disciplinas__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DisciplinaCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Disciplina'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
+  /professores/:
+    get:
+      summary: Listar Professores
+      operationId: listar_professores_professores__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Professor'
+    post:
+      summary: Criar Professor
+      operationId: criar_professor_professores__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfessorCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Professor'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
+  /matriculas/:
+    get:
+      summary: Listar Matriculas
+      operationId: listar_matriculas_matriculas__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Matricula'
+    post:
+      summary: Criar Matricula
+      operationId: criar_matricula_matriculas__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MatriculaCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Matricula'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
+components:
+  schemas:
+    # --- Schemas de Perfil ---
+    Perfil:
+      title: Perfil
+      required:
+        - id
+        - idade
+        - endereco
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        idade:
+          title: Idade
+          type: integer
+        endereco:
+          title: Endereco
+          type: string
+
+    PerfilCreate:
+      title: PerfilCreate
+      required:
+        - idade
+        - endereco
+      type: object
+      properties:
+        idade:
+          title: Idade
+          type: integer
+        endereco:
+          title: Endereco
+          type: string
+
+    # --- Schemas de Estudante ---
+    Estudante:
+      title: Estudante
+      required:
+        - id
+        - nome
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        nome:
+          title: Nome
+          type: string
+        perfil:
+          $ref: '#/components/schemas/Perfil'
+      # O campo perfil é opcional no Pydantic, então não entra no required
+
+    EstudanteCreate:
+      title: EstudanteCreate
+      required:
+        - nome
+        - email
+        - perfil
+      type: object
+      properties:
+        nome:
+          title: Nome
+          type: string
+        email:
+          title: Email
+          type: string
+        perfil:
+          $ref: '#/components/schemas/PerfilCreate'
+
+    # --- Schemas de Disciplina ---
+    Disciplina:
+      title: Disciplina
+      required:
+        - id
+        - nome
+        - descricao
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+        nome:
+          title: Nome
+          type: string
+        descricao:
+          title: Descricao
+          type: string
+
+    DisciplinaCreate:
+      title: DisciplinaCreate
+      required:
+        - nome
+        - descricao
+      type: object
+      properties:
+        nome:
+          title: Nome
+          type: string
+        descricao:
+          title: Descricao
+          type: string
+
+    # --- Schemas de Professor ---
+    Professor:
+      title: Professor
+      required:
+        - nome
+      type: object
+      properties:
+        nome:
+          title: Nome
+          type: string
+
+    ProfessorCreate:
+      title: ProfessorCreate
+      required:
+        - nome
+      type: object
+      properties:
+        nome:
+          title: Nome
+          type: string
+
+    # --- Schemas de Matricula ---
+    Matricula:
+      title: Matricula
+      required:
+        - estudante_id
+        - disciplina_id
+      type: object
+      properties:
+        estudante_id:
+          title: Estudante Id
+          type: integer
+        disciplina_id:
+          title: Disciplina Id
+          type: integer
+
+    MatriculaCreate:
+      title: MatriculaCreate
+      required:
+        - estudante_id
+        - disciplina_id
+      type: object
+      properties:
+        estudante_id:
+          title: Estudante Id
+          type: integer
+        disciplina_id:
+          title: Disciplina Id
+          type: integer
+
+    # --- Schemas de Erro Padrão do FastAPI ---
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string

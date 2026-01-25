@@ -1,0 +1,250 @@
+openapi: 3.0.3
+info:
+  title: ConquisTi Blog API - Node.js Express
+  description: API RESTful para gerenciamento de usuários e artigos com autenticação JWT.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Servidor Local
+
+# Definição de Segurança Global (Components)
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    # --- Schemas de Entrada (Requests) ---
+    UserRegister:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          example: usuario@email.com
+        password:
+          type: string
+          format: password
+          example: senhaSegura123
+
+    UserLogin:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          example: usuario@email.com
+        password:
+          type: string
+          format: password
+          example: senhaSegura123
+
+    ArticleCreate:
+      type: object
+      required:
+        - title
+        - content
+      properties:
+        title:
+          type: string
+          example: Meu Primeiro Artigo
+        content:
+          type: string
+          example: Conteúdo detalhado do artigo sobre Node.js...
+
+    ArticleUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Título Atualizado
+        content:
+          type: string
+          example: Conteúdo atualizado...
+
+    # --- Schemas de Saída (Responses) ---
+    ArticleResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+        userId:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Mensagem de erro descritiva
+
+paths:
+  # --- Rotas de Usuário ---
+  /users/register:
+    post:
+      summary: Registrar novo usuário
+      tags:
+        - Usuários
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+      responses:
+        '201':
+          description: Usuário criado com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Usuário criado
+                  userId:
+                    type: integer
+        '400':
+          description: Parâmetros inválidos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /users/login:
+    post:
+      summary: Autenticação (Login)
+      tags:
+        - Usuários
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        '200':
+          description: Login realizado com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        '401':
+          description: Credenciais inválidas
+        '404':
+          description: Usuário não encontrado
+
+  # --- Rotas de Artigos ---
+  /articles:
+    get:
+      summary: Listar artigos do usuário
+      description: Retorna apenas os artigos criados pelo usuário logado.
+      tags:
+        - Artigos
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Lista de artigos retornada
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ArticleResponse'
+        '401':
+          description: Não autorizado (Token inválido ou ausente)
+
+    post:
+      summary: Criar novo artigo
+      tags:
+        - Artigos
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticleCreate'
+      responses:
+        '201':
+          description: Artigo criado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Artigo criado
+                  articleId:
+                    type: integer
+        '400':
+          description: Parâmetros inválidos
+
+  /articles/{id}:
+    put:
+      summary: Atualizar artigo
+      tags:
+        - Artigos
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID do artigo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticleUpdate'
+      responses:
+        '200':
+          description: Artigo atualizado
+        '404':
+          description: Artigo não encontrado ou não pertence ao usuário
+
+    delete:
+      summary: Deletar artigo
+      tags:
+        - Artigos
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID do artigo
+      responses:
+        '200':
+          description: Artigo deletado com sucesso
+        '404':
+          description: Artigo não encontrado ou não pertence ao usuário

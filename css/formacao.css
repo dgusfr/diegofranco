@@ -87,10 +87,6 @@
   color: #a3a3a3;
 }
 
-.cursos {
-  margin-bottom: 60px;
-}
-
 .formacao-extra h3 {
   font-size: 0.875rem;
   line-height: 1.4;
@@ -108,10 +104,6 @@
   position: absolute;
   left: -36px;
   top: -4px;
-}
-
-.cursos h3::before {
-  background: url("../img/cursos.svg") no-repeat center center;
 }
 
 .idiomas h3::before {
